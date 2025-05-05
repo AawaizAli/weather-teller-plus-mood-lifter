@@ -38,7 +38,7 @@ function LinkGrid({ dark }) {
       justifyContent: 'center',
       flexWrap: 'wrap',
       maxWidth: '800px',
-      marginTop: '3rem',
+      marginTop: '1rem',
       gap: '1.5rem',
     },
     gridMobile: {

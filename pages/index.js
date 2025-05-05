@@ -61,7 +61,6 @@ export default function Home() {
         </code>
 
         <Weather weatherData={weatherData} dark={dark} />
-        <p className="description">places to go to if ur feeling down:</p>
         <LinkGrid dark={dark} />
       </main>
       

@@ -124,6 +124,7 @@ export default function WeatherWidget({ weatherData, dark }) {
           gap: 1rem;
           justify-content: center;
           margin-bottom: 2rem;
+          margin-top: 1rem;
         }
 
         .city-button {
