@@ -12,7 +12,7 @@ import {
   Umbrella,
   Wind,
   Sunset,
-} from "lucide-react";
+} from "react-feather";
 import { getIcon } from "./Weather";
 
 export default function DetailedDay(props) {
