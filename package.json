@@ -1,0 +1,38 @@
+{
+  "name": "meganthurmond",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start -p 80",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "date-fns": "^2.15.0",
+    "lucide-react": "^0.507.0",
+    "next": "^15.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.8",
+    "react-loader-spinner": "^3.1.14",
+    "react-loading-skeleton": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.23.4",
+    "@babel/plugin-transform-optional-chaining": "^7.23.4",
+    "@babel/plugin-transform-private-methods": "^7.23.3",
+    "@next/bundle-analyzer": "^15.3.1",
+    "cross-env": "^7.0.2"
+  },
+  "overrides": {
+    "loader-utils": "^2.0.4",
+    "braces": "^3.0.3",
+    "postcss": "^8.4.31",
+    "terser": "^5.27.0"
+  }
+}
