@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "react-feather";
 import Weather from "../components/weather/Weather";
 import axios from "axios";
 import Preloader from "../components/Preloader";
@@ -62,6 +61,7 @@ export default function Home() {
         </code>
 
         <Weather weatherData={weatherData} dark={dark} />
+        <p className="description">places to go to if ur feeling down:</p>
         <LinkGrid dark={dark} />
       </main>
       
