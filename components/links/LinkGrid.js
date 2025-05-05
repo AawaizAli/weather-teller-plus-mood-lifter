@@ -1,48 +1,84 @@
 import LinkGridCard from "./LinkGridCard";
+import { useState, useEffect } from "react";
 
-function LinkGrid() {
+function LinkGrid({ dark }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const links = [
     {
-      title: "MTG List",
-      description: "Useful list of mtg cards.",
-      link: "https://gatherer.wizards.com/Pages/Default.aspx",
+      title: "Our Pinterest Board",
+      description: "very useful and cute",
+      link: "https://pin.it/7Fgas4dIa",
     },
     {
-      title: "Pics of Archie",
-      description: "Feeling Down? Check these.",
-      link: "https://www.icloud.com/sharedalbum/#B0OGWZuqDJpPvsa",
+      title: "Random Cat Pics",
+      description: "guaranteed to make you smile",
+      link: "https://photos.app.goo.gl/9LFvUSqJoaRdCpXQ6",
     },
     {
-      title: "Doordash",
-      description: "Hungry? Feeling Lazy? Check this.",
-      link: "https://doordash.com"
+      title: "Shared Art Canvas",
+      description: "come help me make an art wall",
+      link: "https://magma.com/d/CMwtWvJ58a"
+    },
+    {
+      title: "Pictures of Us",
+      description: "meet call pictures :p",
+      link: "https://photos.app.goo.gl/oBmsCoVCL4WAxby46"
     }
-  ]
+  ];
 
+  const styles = {
+    grid: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      maxWidth: '800px',
+      marginTop: '3rem',
+      gap: '1.5rem',
+    },
+    gridMobile: {
+      width: '100%',
+      flexDirection: 'column',
+    }
+  };
 
-  return <><div className="grid">
-    {links.map(link => <LinkGridCard title={link.title} description={link.description} link={link.link} />)}
-  </div>
-    <style jsx>{`
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
+  if (!isMounted) {
+    return null; // or a loading spinner
+  }
 
-          max-width: 800px;
-          margin-top: 3rem;
-        }
+  return (
+    <>
+  
 
+      <div style={styles.grid}>
+
+        {links.map((link, index) => (
+          <LinkGridCard
+            key={index}
+            title={link.title}
+            description={link.description}
+            link={link.link}
+            dark={dark}
+          />
+        ))}
+
+        <style jsx>{`
         @media (max-width: 600px) {
           .grid {
             width: 100%;
             flex-direction: column;
+            gap: 1rem;
           }
         }
-        `}</style>
-  </>
+      `}</style>
+      </div>
+    </>
+  );
 }
 
 export default LinkGrid;

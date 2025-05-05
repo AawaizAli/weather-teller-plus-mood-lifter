@@ -8,7 +8,7 @@ import LinkGrid from "../components/links/LinkGrid";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false); // Default to light theme with new palette
   const [weatherData, setWeatherData] = useState(null);
   const [compliment, setCompliment] = useState("");
 
@@ -29,21 +29,22 @@ export default function Home() {
   return (
     <div className={`container ${dark ? "dark" : ""}`}>
       <Head>
-        <title>Hey Cutie</title>
+        <title>hellaurr 🦕!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">Hi, Baby 🥧!</h1>
-        <p className="description">Hope you're having a great day!</p>
+        <h1 className="title">hellaurr 🦕!</h1>
+        <p className="description">hope you're having a great day!</p>
         
-        <div className="toggle-container">
+        {/* <div className="toggle-container">
           {dark ? (
             <Sun
               onClick={() => {
                 window.localStorage.setItem("theme", "light");
                 setDark(false);
               }}
+              className="theme-toggle"
             />
           ) : (
             <Moon
@@ -51,12 +52,13 @@ export default function Home() {
                 window.localStorage.setItem("theme", "dark");
                 setDark(true);
               }}
+              className="theme-toggle"
             />
           )}
-        </div>
+        </div> */}
         
         <code className={`${dark ? "dark-code" : ""} compliment`}>
-          Always Remember: {compliment}
+          always rmr: {compliment}
         </code>
 
         <Weather weatherData={weatherData} dark={dark} />
@@ -67,27 +69,37 @@ export default function Home() {
       
       <style jsx>{`
         .dark {
-          background: #212121;
-          color: white;
+          background: #006A71;
+          color: #F2EFE7;
+        }
+
+        .dark .compliment {
+          background: #48A6A7;
+          color: #F2EFE7;
+        }
+
+        .dark .compliment:hover {
+          background: #9ACBD0;
+          color: #006A71;
         }
 
         .dark-code {
-          color: black;
+          color: #F2EFE7;
         }
         
         code:hover,
         code:active,
         code:focus {
-          color: #F687B3;
-          border-color: #F687B3;
+          color: #006A71;
+          border-color: #48A6A7;
         }
 
         .dark-code:hover,
         .dark-code:active,
         .dark-code:focus {
-          background: #ED64A6;
-          border-color: #ED64A6;
-          color: black;
+          background: #9ACBD0;
+          border-color: #48A6A7;
+          color: #006A71;
         }
 
         .container {
@@ -97,14 +109,42 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background: #F2EFE7;
+          color: #006A71;
         }
 
         .compliment {
           cursor: pointer;
+          background: #9ACBD0;
+          color: #006A71;
+          transition: all 0.3s ease;
+        }
+
+        .compliment:hover {
+          background: #48A6A7;
+          color: #F2EFE7;
         }
 
         .toggle-container {
           padding-bottom: 25px;
+        }
+
+        .theme-toggle {
+          cursor: pointer;
+          color: #48A6A7;
+          transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+          color: #006A71;
+        }
+
+        .dark .theme-toggle {
+          color: #9ACBD0;
+        }
+
+        .dark .theme-toggle:hover {
+          color: #F2EFE7;
         }
 
         main {
@@ -114,21 +154,37 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          width: 100%;
+          max-width: 1200px;
         }
 
         a {
-          color: inherit;
+          color: #48A6A7;
           text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        a:hover {
+          color: #006A71;
+        }
+
+        .dark a {
+          color: #9ACBD0;
+        }
+
+        .dark a:hover {
+          color: #F2EFE7;
         }
 
         .title a {
-          color: #0070f3;
+          color: #48A6A7;
           text-decoration: none;
         }
 
         .title a:hover,
         .title a:focus,
         .title a:active {
+          color: #006A71;
           text-decoration: underline;
         }
 
@@ -136,6 +192,11 @@ export default function Home() {
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+          color: #006A71;
+        }
+
+        .dark .title {
+          color: #F2EFE7;
         }
 
         .title,
@@ -146,15 +207,22 @@ export default function Home() {
         .description {
           line-height: 1.5;
           font-size: 1.5rem;
+          color: #48A6A7;
+        }
+
+        .dark .description {
+          color: #9ACBD0;
         }
 
         code {
-          background: #fafafa;
+          background: #9ACBD0;
           border-radius: 5px;
           padding: 0.75rem;
           font-size: 1.1rem;
           font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+          border: 1px solid #48A6A7;
+          transition: all 0.3s ease;
         }
       `}</style>
       
@@ -163,13 +231,29 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;
+          transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         * {
           box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+          .title {
+            font-size: 2.5rem;
+          }
+          
+          .description {
+            font-size: 1.2rem;
+          }
+          
+          code {
+            font-size: 1rem;
+            padding: 0.5rem;
+          }
         }
       `}</style>
     </div>

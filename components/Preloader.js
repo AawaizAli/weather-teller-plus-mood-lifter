@@ -4,12 +4,12 @@ function Preloader(props) {
         <div className={`loading-container ${props.dark ? "dark" : ""}`}>
             <Loader
                 type="Hearts"
-                color={props.dark ? "#ED64A6" : "#F687B3"}
+                color={props.dark ? "#006A71" : "#006A71"}
                 height={50}
                 width={50}
                 timeout={10000}
             />
-            <code className={`${props.dark ? "dark-code" : ""}`}>project ur-a-cutie</code>
+            <code className={`${props.dark ? "dark-code" : ""}`}>project wife-her</code>
             <style jsx>{`
       .dark {
         background: #212121;
